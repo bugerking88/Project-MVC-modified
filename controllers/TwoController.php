@@ -1,7 +1,5 @@
 <?php
-
 class TwoController extends Controller {
-    
 function index() {
 
         $this->view("index");
@@ -155,13 +153,11 @@ $startRow_records = ($num_pages -1) * $pageRow_records;
 //未加限制顯示筆數的SQL敘述句
 $member=$this->model("login");
 $all_RecAlbum=$member->member_show();
-// $member=new member();
-// $all_RecAlbum=$member->show();
 
 //以加上限制顯示筆數的SQL敘述句查詢資料到 $RecAlbum 中
 $RecAlbum=$member->showlimit($startRow_records,$pageRow_records);
 
-// //計算總筆數
+//計算總筆數
 $total_records=count($all_RecAlbum);
 
 //計算總頁數=(總筆數/每頁筆數)後無條件進位。
@@ -221,7 +217,6 @@ unlink("../photos/".$delphoto[$i]["ap_picurl"]);
 }
 //刪除相簿
 $deleteAlbum=$this->model("login");
-// 	$deleteAlbum=new deleteAlbum();
 $deleteAlbum->delalbumFunc($id);
 $deleteAlbum->delalbumphotoFunc($id);
 //重新導向回到主畫面
@@ -231,11 +226,38 @@ $this->view("admin", Array($result,$result2));
 
 }
 function adminadd(){
+$this->view("adminadd");
+if(isset($_POST["action"])&&($_POST["action"]=="add")){
 $album_pid=$this->model("login");
 $album_pid=$album_pid->addAlbum();
-if(isset($_POST["action"])&&($_POST["action"]=="add"))
-header("Location:EasyMVC/Two/adminfix?id=".$album_pid);
-$this->view("adminadd");
+header("Location:/EasyMVC/Two/adminfix?id=".$album_pid);
+}
+}
+function adminfix(){
+    if(isset($_POST["action"])&&($_POST["action"]=="update")){
+//重新導向回到本畫面
+        $updatePhot=$this->model("login");
+        $updatePhot->updatePhotoDetail();
+        header("Location: ?id=".$_POST["album_id"]);
+    }
+$result=$this->fixShow_con();
+$this->view("adminfix",$result);
+}
+function fixShow_con(){
+$id=$_GET["id"];
+//顯示相簿資訊
+// $fixShow=new fixShow();
+$fixShow=$this->model("login");
+$RecAlbum=$fixShow->show($id);
+//顯示照片
+$fixShow=$this->model("login");
+$RecPhoto=$fixShow->showPhoto($id);
+//計算照片總筆數
+$total_records = count($RecPhoto);
+$result['RecAlbum']= $RecAlbum;
+$result['RecPhoto']= $RecPhoto;
+$result['total_records']=$total_records;
+return $result;
 }
 }   
 

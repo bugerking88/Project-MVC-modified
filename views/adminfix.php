@@ -1,8 +1,5 @@
 <?php 
 header("Content-Type: text/html; charset=utf-8");
-session_start();
-require("../controllers/adminfix_con.php");
-require("../controllers/fixShow_con.php");
 ?>
 <html>
 <head>
@@ -24,35 +21,35 @@ require("../controllers/fixShow_con.php");
         <table width="90%" border="0" align="center" cellpadding="4" cellspacing="0">
           <tr>
             <td>
-              <div>相片總數: <?php echo $total_records;?></div>
+              <div>相片總數: <?php echo $data['total_records'];?></div>
               <form action="" method="post" enctype="multipart/form-data" name="form1" id="form1">
                 <div>
                   <p>相簿內容</p>
                   <p>相簿名稱：
-                    <input name="album_title" type="text" id="album_title" value="<?php echo $RecAlbum[0]["album_title"];?>" />
-                    <input name="album_id" type="hidden" id="album_id" value="<?php echo $RecAlbum[0]["album_id"];?>" />                  
+                    <input name="album_title" type="text" id="album_title" value="<?php echo $data['RecAlbum'][0]["album_title"];?>" />
+                    <input name="album_id" type="hidden" id="album_id" value="<?php echo $data['RecAlbum'][0]["album_id"];?>" />                  
                   </p>
                   <p>拍攝時間：
-                    <input name="album_date" type="text" id="album_date" value="<?php echo $RecAlbum[0]["album_date"];?>" /><br />
+                    <input name="album_date" type="text" id="album_date" value="<?php echo $data['RecAlbum'][0]["album_date"];?>" /><br />
                     拍攝地點：
-                    <input name="album_location" type="text" id="album_location" value="<?php echo $RecAlbum[0]["album_location"];?>" />
+                    <input name="album_location" type="text" id="album_location" value="<?php echo $data['RecAlbum'][0]["album_location"];?>" />
                   </p>
                   <p>相簿說明：
-                    <textarea name="album_desc" id="album_desc" cols="45" rows="5"><?php echo $RecAlbum[0]["album_desc"];?></textarea>
+                    <textarea name="album_desc" id="album_desc" cols="45" rows="5"><?php echo $data['RecAlbum'][0]["album_desc"];?></textarea>
                   </p>
                   <hr />
                 </div>
                 <?php
 			   $checkid=0;
-			   for($i=0;$i<count($RecPhoto);$i++){
+			   for($i=0;$i<count($data['RecPhoto']);$i++){
 			   ?>
                 <div>
-                  <div><img src="../photos/<?php echo $RecPhoto[$i]["ap_picurl"];?>" alt="<?php echo $RecPhoto[$i]["ap_subject"];?>" width="150" height="150" border="0" /></div>
+                  <div><img src="/EasyMVC/photos/<?php echo $data['RecPhoto'][$i]["ap_picurl"];?>" alt="<?php echo $data[$i]["ap_subject"];?>" width="150" height="150" border="0" /></div>
                   <div>
                     <p>
-                      <input name="ap_id[]" type="hidden" id="ap_id[]" value="<?php echo $RecPhoto[$i]["ap_id"];?>" />
-                      <input name="delfile[]" type="hidden" id="delfile[]" value="<?php echo $RecPhoto[$i]["ap_picurl"];?>">
-                      <input name="update_subject[]" type="text" id="update_subject[]" value="<?php echo $RecPhoto[$i]["ap_subject"];?>" size="15" />
+                      <input name="ap_id[]" type="hidden" id="ap_id[]" value="<?php echo $data['RecPhoto'][$i]["ap_id"];?>" />
+                      <input name="delfile[]" type="hidden" id="delfile[]" value="<?php echo $data['RecPhoto'][$i]["ap_picurl"];?>">
+                      <input name="update_subject[]" type="text" id="update_subject[]" value="<?php echo $data['RecPhoto'][$i]["ap_subject"];?>" size="15" />
                       <br />
                       <input name="delcheck[]" type="checkbox" id="delcheck[]" value="<?php echo $checkid;$checkid++?>" />
                       刪除?</p>
