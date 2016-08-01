@@ -1,0 +1,42 @@
+[24-Jul-2016 15:20:31 UTC] PHP Fatal error:  Class 'Controller' not found in /home/ubuntu/workspace/EasyMVC/controllers/OneController.php on line 3
+[24-Jul-2016 15:20:31 UTC] PHP Stack trace:
+[24-Jul-2016 15:20:31 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/OneController.php:0
+[24-Jul-2016 15:22:48 UTC] PHP Fatal error:  Class 'Controller' not found in /home/ubuntu/workspace/EasyMVC/controllers/OneController.php on line 3
+[24-Jul-2016 15:22:48 UTC] PHP Stack trace:
+[24-Jul-2016 15:22:48 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/OneController.php:0
+[25-Jul-2016 06:07:40 UTC] PHP Warning:  include_once(mysql_connect.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/EasyMVC/models/totalModel2.php on line 2
+[25-Jul-2016 06:07:40 UTC] PHP Stack trace:
+[25-Jul-2016 06:07:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:0
+[25-Jul-2016 06:07:40 UTC] PHP   2. include() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:4
+[25-Jul-2016 06:07:40 UTC] PHP Warning:  include_once(): Failed opening 'mysql_connect.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/EasyMVC/models/totalModel2.php on line 2
+[25-Jul-2016 06:07:40 UTC] PHP Stack trace:
+[25-Jul-2016 06:07:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:0
+[25-Jul-2016 06:07:40 UTC] PHP   2. include() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:4
+[25-Jul-2016 06:07:40 UTC] PHP Fatal error:  Class 'connect_one' not found in /home/ubuntu/workspace/EasyMVC/models/totalModel2.php on line 4
+[25-Jul-2016 06:07:40 UTC] PHP Stack trace:
+[25-Jul-2016 06:07:40 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:0
+[25-Jul-2016 06:07:40 UTC] PHP   2. include() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:4
+[25-Jul-2016 06:26:07 UTC] PHP Warning:  include_once(mysql_connect.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/EasyMVC/models/totalModel2.php on line 2
+[25-Jul-2016 06:26:07 UTC] PHP Stack trace:
+[25-Jul-2016 06:26:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:0
+[25-Jul-2016 06:26:07 UTC] PHP   2. include() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:4
+[25-Jul-2016 06:26:07 UTC] PHP Warning:  include_once(): Failed opening 'mysql_connect.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/EasyMVC/models/totalModel2.php on line 2
+[25-Jul-2016 06:26:07 UTC] PHP Stack trace:
+[25-Jul-2016 06:26:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:0
+[25-Jul-2016 06:26:07 UTC] PHP   2. include() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:4
+[25-Jul-2016 06:26:07 UTC] PHP Fatal error:  Class 'connect_one' not found in /home/ubuntu/workspace/EasyMVC/models/totalModel2.php on line 4
+[25-Jul-2016 06:26:07 UTC] PHP Stack trace:
+[25-Jul-2016 06:26:07 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:0
+[25-Jul-2016 06:26:07 UTC] PHP   2. include() /home/ubuntu/workspace/EasyMVC/controllers/update_finish.php:4
+[29-Jul-2016 06:45:06 UTC] PHP Warning:  include_once(mysql_connect.php): failed to open stream: No such file or directory in /home/ubuntu/workspace/EasyMVC/models/totalModel2.php on line 2
+[29-Jul-2016 06:45:06 UTC] PHP Stack trace:
+[29-Jul-2016 06:45:06 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/memberMsg_con.php:0
+[29-Jul-2016 06:45:06 UTC] PHP   2. include() /home/ubuntu/workspace/EasyMVC/controllers/memberMsg_con.php:2
+[29-Jul-2016 06:45:06 UTC] PHP Warning:  include_once(): Failed opening 'mysql_connect.php' for inclusion (include_path='.:/usr/share/php:/usr/share/pear') in /home/ubuntu/workspace/EasyMVC/models/totalModel2.php on line 2
+[29-Jul-2016 06:45:06 UTC] PHP Stack trace:
+[29-Jul-2016 06:45:06 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/memberMsg_con.php:0
+[29-Jul-2016 06:45:06 UTC] PHP   2. include() /home/ubuntu/workspace/EasyMVC/controllers/memberMsg_con.php:2
+[29-Jul-2016 06:45:06 UTC] PHP Fatal error:  Class 'connect_one' not found in /home/ubuntu/workspace/EasyMVC/models/totalModel2.php on line 4
+[29-Jul-2016 06:45:06 UTC] PHP Stack trace:
+[29-Jul-2016 06:45:06 UTC] PHP   1. {main}() /home/ubuntu/workspace/EasyMVC/controllers/memberMsg_con.php:0
+[29-Jul-2016 06:45:06 UTC] PHP   2. include() /home/ubuntu/workspace/EasyMVC/controllers/memberMsg_con.php:2
