@@ -1,42 +1,25 @@
 <?php
 class TwoController extends Controller {
-function index() {
-
+    function index() {
         $this->view("index");
     }
-function member() {
- $this->model("login");
-    $login =new login();
-    $result = $login->showlimit();
-    $result2=$this->member_con();
-    $this->view("member",Array($result,$result2));
+    function member() {
+        $login=$this->model("login");
+        $result = $login->showlimit();
+        $result2=$this->member_con();
+        $this->view("member",Array($result,$result2));
     }
-function login() {
-
+    function login() {
         $this->view("login");
     }
-function logincheck(){
-  $id = $_POST['id'];
-  $pw = $_POST['pw'];
-  $login=$this->model("login");
-  $result = $login->logcheck($id);
-if($id != null && $pw != null && $result[0]['username'] == $id && $result[0]['password'] == $pw){
-        //將帳號寫入session，方便驗證使用者身份
-        $_SESSION['username'] = $id;
-        echo '登入成功!';
-        header("location:/EasyMVC/Two/member");
-}
-else{
-        echo '登入失敗!';
-        header("location:/EasyMVC/Two/index");
-}
-
-header($a->islogin());
-$this->view("login", $result);
-}
+    function logincheck(){
+        $id = $_POST['id'];
+        $pw = $_POST['pw'];
+        $login=$this->model("login");
+        $login->logcheck($_POST)?header("location:/EasyMVC/Two/member"):header("location:/EasyMVC/Two/index");
+    }
 function regist() {
-
-        $this->view("register");
+    $this->view("register");
     }
 function regist_finish(){
     include("accountClass.php");
@@ -53,24 +36,12 @@ if($account->id != null && $account->pw != null && $account->pw2 != null && $acc
         //新增資料進資料庫語法
       
     $regist=$this->model("login");
-    
-    $checkError=$regist->regist_finish($id,$pw,$telephone,$address,$other);
-    if($checkError){
-        
-
-                echo '新增成功!';
-                header("location:/EasyMVC/Two/login");
-        }
-        else
-        {
-                echo '新增失敗!';
-                 header("location:/EasyMVC/Two/login");
-        }
+    $regist->regist_finish($id,$pw,$telephone,$address,$other);
+    header("location:/EasyMVC/Two/login");
 }
 else
 {
-        echo '資料填寫不正確,或資料不齊全,請重新填寫!';
-         header("location:/EasyMVC/Two/regist");}
+   header("location:/EasyMVC/Two/regist");}
 }
 function logout(){
 unset($_SESSION['username']);
@@ -101,7 +72,6 @@ if($_SESSION['username'] != null && $account->pw != null && $account->pw2 != nul
         //更新資料庫資料語法
         if(1)
         {
-            // $updateMember=new updateMember();
              $updateMember=$this->model("login");
             $updateMember->update_finish($id,$pw,$telephone,$address,$other);
                 echo '修改成功!';

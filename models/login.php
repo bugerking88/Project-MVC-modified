@@ -1,31 +1,35 @@
 <?php
 class login extends connect_two{
-function logcheck($id){
-        $sql = "SELECT * FROM Member_Table where username = '$id'";
+	function logcheck($user){
+        $sql = "SELECT * FROM `Member_Table` where `username` = '{$user['id']}'";
         $row=$this->connect_getdata($sql);
-        return $row;
-            
-        }
+        if($user['id'] && $user['pw'] && $row[0]['username'] == $user['id'] && $row[0]['password'] == $user['pw'])
+		{
+			$_SESSION['username'] = $user['id'];
+			return true;
+		}
+		return false;	
+	}
 function regist_finish($id,$pw,$telephone,$address,$other){
-     $sql = "insert into Member_Table (username, password, telephone, address, other) 
+     $sql = "INSERT INTO `Member_Table` (`username`, `password`, `telephone`, `address`, `other`) 
         values ('".$id."','".$pw."', '".$telephone."','".$address."', '".$other."')";
         $this->connect_mysql($sql);
         $checkError=$this->selectResult();//判斷有沒有INSERT成功
         return $checkError;
 }
 function updateClass($id){
-        $sql = "SELECT * FROM Member_Table where username='$id'";
+        $sql = "SELECT * FROM `Member_Table` where `username`='$id'";
         $row = $this->connect_getdata($sql);
         return $row;  
 }
 function update_finish($id,$pw,$telephone,$address,$other){
-    $sql = "update Member_Table set password='$pw', telephone='$telephone', address='$address', other='$other' where username='$id'";  
+    $sql = "UPDATE `Member_Table` SET `password`='$pw', `telephone`='$telephone', `address`='$address', `other`='$other' where `username`='$id'";  
     $this->connect_mysql($sql);
     $checkError=$this->selectResult();//判斷有沒有INSERT成功
     return $checkError;
 }
 function checksession($id){
-        $sql = "SELECT * FROM Member_Table where username = '$id'";
+        $sql = "SELECT * FROM `Member_Table` where `username` = '$id'";
         $result=$this->connect_getdata($sql);    
          return $result;
         }
@@ -97,7 +101,7 @@ $this->connect_mysql($sql);
 
 }
 function delphoto($id){
-$sql="SELECT * FROM albumphoto WHERE `album_id`='".$id."'";
+$sql="SELECT * FROM `albumphoto` WHERE `album_id`='".$id."'";
 $delphoto=$this->connect_getdata($sql);
 return $delphoto;  
 }
@@ -119,7 +123,7 @@ function addAlbum(){
 			$album_pid = mysql_insert_id(); 
 			for ($i=0; $i<count($_FILES["ap_picurl"]["name"]); $i++) {
 			  if ($_FILES["ap_picurl"]["tmp_name"][$i] != "") {
-				  $query_insert = "INSERT INTO albumphoto (album_id, ap_date, ap_picurl, ap_subject) VALUES (";
+				  $query_insert = "INSERT INTO `albumphoto` (album_id, ap_date, ap_picurl, ap_subject) VALUES (";
 				  $query_insert .= $album_pid.",";
 				  $query_insert .= "NOW(),";	  
 				  $query_insert .= "'". $_FILES["ap_picurl"]["name"][$i]."',";
