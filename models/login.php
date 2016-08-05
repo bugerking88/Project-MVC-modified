@@ -121,7 +121,6 @@ class login extends connect_two{
 				$query_insert .= "'".$_POST["album_location"]."',";	
 				$query_insert .= "'".$_POST["album_desc"]."')";
 				$this->insertAndgetLastId($query_insert);
-				
 				// $db=new PDO("mysql:host=localhost;dbname=MyDB;port=3306","root","");
 				$album_pid=$this->result;
 				// $album_pid = mysql_insert_id(); 

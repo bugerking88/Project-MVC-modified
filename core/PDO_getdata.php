@@ -1,5 +1,5 @@
 <?php 
-require_once("mysql_connect.php");
+require_once("PDO_connect.php");
 class connect_two extends connect_one{
     
     function connect_getdata($com){
